@@ -60,7 +60,7 @@
   },
   "libraries": {
     "FSharp.Core/9.0.101": {
-      "sha512": "RJDIbBZKGWcRvrBVaL7eJB3qGwfv2SEOhP+I64n8hbao6waZKnmv2wwP0HILHdwhdZ99C3XFO+DSljekmphecA==",
+      "sha512": "zJOdLztva1tVLz80n4zn/PCoLb2nPyngTa21dshsGuIawyOr9yojnq45SwqjADJFZeWo3v+JAcS4ATbIoz1SsQ==",
       "type": "package",
       "path": "fsharp.core/9.0.101",
       "files": [
@@ -112,11 +112,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lucas/Projects/fSharp/Assignment4/Assignment4.fsproj",
+      "projectUniqueName": "/home/lucas/fSHARP/Assignment4/Assignment4.fsproj",
       "projectName": "Assignment4",
-      "projectPath": "/home/lucas/Projects/fSharp/Assignment4/Assignment4.fsproj",
+      "projectPath": "/home/lucas/fSHARP/Assignment4/Assignment4.fsproj",
       "packagesPath": "/home/lucas/.nuget/packages/",
-      "outputPath": "/home/lucas/Projects/fSharp/Assignment4/obj/",
+      "outputPath": "/home/lucas/fSHARP/Assignment4/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/lucas/.nuget/NuGet/NuGet.Config"
@@ -125,8 +125,8 @@
         "net7.0"
       ],
       "sources": {
-        "/usr/lib64/dotnet/library-packs": {},
-        "/usr/lib64/dotnet/sdk/9.0.102/FSharp/library-packs": {},
+        "/usr/lib/dotnet/library-packs": {},
+        "/usr/lib/dotnet/sdk/9.0.103/FSharp/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -170,6 +170,10 @@
             "version": "[7.0.20, 7.0.20]"
           },
           {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
             "name": "Microsoft.NETCore.App.Ref",
             "version": "[7.0.20, 7.0.20]"
           }
@@ -179,7 +183,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.103/RuntimeIdentifierGraph.json"
       }
     }
   }

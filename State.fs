@@ -5,19 +5,36 @@ module Interpreter.State
     
 
     let reservedVariableNameList = ["if"; "then"; "else"; "while"; "declare"; "print"; "random"; "fork"; "__result__"]
-    let reservedVariableName (s:string) = List.exists(fun x -> x = s) reservedVariableNameList
+    let reservedVariableName s= List.exists(fun x -> x = s) reservedVariableNameList
 
-    let validVariableName _ = failwith "not implemented"
+    let validVariableName (s: string) = 
+        match s.[0] with
+        | c when System.Char.IsAsciiLetter(c) || c = '_' -> String.forall(fun c-> System.Char.IsAsciiLetterOrDigit(c) || c = '_') s.[1..]
+        | _ -> false
     
-    type state = unit // your type goes here
     
-    let mkState _ = failwith "not implemented"
+    type state = {m: Map<string,int>}
+    let mkState () = {m = Map.empty<string,int>}
+
+    let declare x st = 
+        match st.m with
+        | m when m.ContainsKey x -> None
+        | _ when not (validVariableName x) || reservedVariableName x -> None
+        | _ -> Some {m = st.m.Add(x,0)}
+
+    let getVar x st = 
+        match st.m.ContainsKey x with
+        | true -> Some st.m.[x]
+        | _ -> None
+
+    let setVar x (v: int) st = 
+        match st.m.ContainsKey x with
+        | true -> Some {m = st.m.Add(x,v)}
+        | _ -> None
+
+
     let random _ = failwith "not implemented"
-    
-    let declare _ = failwith "not implemented"
-    
-    let getVar _ = failwith "not implemented"
-    let setVar _ = failwith "not implemented"
+        
     
     let push _ = failwith "not implemented"
     let pop _ = failwith "not implemented"     

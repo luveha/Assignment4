@@ -12,5 +12,5 @@ module main
         printfn "%A" (() |> mkState |> declare "x" |> bind (getVar "x"))
         printfn "%A" (() |> mkState |> declare "x" |> bind (setVar "x" 42) |> bind (getVar "x"))
         printfn "%A" (() |> mkState |> declare "1x" |> bind (setVar "1x" 42) |> bind (getVar "1x"))
-
+        
         0 // return an integer exit code

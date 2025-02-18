@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/lucas/fSHARP/Assignment4/Assignment4.fsproj": {}
+    "/home/lucas/Projects/fSharp/Assignment4/Assignment4.fsproj": {}
   },
   "projects": {
-    "/home/lucas/fSHARP/Assignment4/Assignment4.fsproj": {
+    "/home/lucas/Projects/fSharp/Assignment4/Assignment4.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/lucas/fSHARP/Assignment4/Assignment4.fsproj",
+        "projectUniqueName": "/home/lucas/Projects/fSharp/Assignment4/Assignment4.fsproj",
         "projectName": "Assignment4",
-        "projectPath": "/home/lucas/fSHARP/Assignment4/Assignment4.fsproj",
+        "projectPath": "/home/lucas/Projects/fSharp/Assignment4/Assignment4.fsproj",
         "packagesPath": "/home/lucas/.nuget/packages/",
-        "outputPath": "/home/lucas/fSHARP/Assignment4/obj/",
+        "outputPath": "/home/lucas/Projects/fSharp/Assignment4/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/lucas/.nuget/NuGet/NuGet.Config"
@@ -20,8 +20,7 @@
           "net7.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
-          "/usr/lib/dotnet/sdk/9.0.103/FSharp/library-packs": {},
+          "/home/lucas/dotnet/sdk/7.0.410/FSharp/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -29,13 +28,7 @@
             "targetAlias": "net7.0",
             "projectReferences": {}
           }
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net7.0": {
@@ -44,7 +37,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[9.0.101, )",
+              "version": "[7.0.403, )",
               "generatePathProperty": true
             }
           },
@@ -59,26 +52,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/lucas/dotnet/sdk/7.0.410/RuntimeIdentifierGraph.json"
         }
       }
     }

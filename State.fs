@@ -27,7 +27,7 @@ module Interpreter.State
         | true -> Some st.m.[x]
         | _ -> None
 
-    let setVar x (v: int) st = 
+    let setVar x v st = 
         match st.m.ContainsKey x with
         | true -> Some {m = st.m.Add(x,v)}
         | _ -> None

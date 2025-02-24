@@ -3,11 +3,6 @@ module Interpreter.Eval
     open Result
     open Language
     open State
-    
-    let apply (n1: 'a option) (n2: 'a option) (operation: 'a -> 'a -> 'b)= 
-        match n1,n2 with
-        |  Some x, Some y -> Some (operation x y)
-        | _ -> None
 
     let rec arithEval a st = 
         match a with
@@ -32,7 +27,7 @@ module Interpreter.Eval
                 match arithEval x st, arithEval y st with
                 | Error e, _ | _ , Error e-> Error(e)
                 | Ok x, Ok 0 -> Error (DivisionByZero) 
-                | Ok x, Ok y -> Ok (x % y)                
+                | Ok x, Ok y -> Ok (x % y)     
 
     let rec boolEval b st = 
         match b with
@@ -57,18 +52,24 @@ module Interpreter.Eval
     let rec stmntEval s st = 
         match s with 
         | Skip -> Ok st
-        | Declare s -> declare s st
+        | Declare s -> 
+                match declare s st with
+                | Error e -> Error e
+                | Ok st -> Ok st
         | Assign(v,a) -> 
                 match arithEval a st with
                 | Error e-> Error e
-                | Ok x -> setVar v x st
+                | Ok x -> 
+                        match setVar v x st with
+                        | Ok x -> Ok x
+                        | Error(e) -> Error(e)
         | Seq (s1,s2) -> 
                 match stmntEval s1 st with
                 | Error e -> Error e
                 | Ok st' -> 
                         match stmntEval s2 st' with
                         | Error e -> Error e
-                        | st'' -> st'' 
+                        | Ok st'' -> Ok st'' 
         | If (gaurd, s1, s2) -> 
                 match boolEval gaurd st with
                 | Error e -> Error e
@@ -80,5 +81,8 @@ module Interpreter.Eval
                 | Ok true -> 
                         match stmntEval s' st with
                         | Error e -> Error e
-                        | Ok st'' -> stmntEval (While (gaurd, s')) st''
+                        | Ok st'' -> 
+                                match stmntEval (While (gaurd, s')) st'' with
+                                | Error e -> Error e
+                                | Ok st''' -> Ok st'''
                 | Ok false -> Ok st

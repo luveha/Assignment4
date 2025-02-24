@@ -18,23 +18,19 @@ module Interpreter.State
 
     let declare x st = 
         match st.m with
-        | m when m.ContainsKey x -> 
-            Error (VarNotDeclared(x)) //VarNotDeclared gives no errors on Yellow, but I think the error should be VarAlreadyExists on Yellow
-        | _ when reservedVariableName x -> 
-            Error (ReservedName(x))
-        | _ when not (validVariableName x) -> 
-            Error (InvalidVarName(x))
-        | _ -> Ok {m = st.m.Add(x,0)}
+        | m when m.ContainsKey x -> None
+        | _ when not (validVariableName x) || reservedVariableName x -> None
+        | _ -> Some {m = st.m.Add(x,0)}
 
     let getVar x st = 
         match st.m.ContainsKey x with
-        | true -> Ok st.m.[x]
-        | _ -> Error (VarNotDeclared(x))
+        | true -> Some st.m.[x]
+        | _ -> None
 
     let setVar x v st = 
         match st.m.ContainsKey x with
-        | true -> Ok {m = st.m.Add(x,v)}
-        | _ -> Error (VarNotDeclared(x))
+        | true -> Some {m = st.m.Add(x,v)}
+        | _ -> None
 
 
     let random _ = failwith "not implemented"
